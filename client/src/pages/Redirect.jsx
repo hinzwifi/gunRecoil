@@ -7,6 +7,7 @@ import "gun/axe";
 import { Helmet } from "react-helmet";
 function Redirect() {
   const [redirect, setredirect] = useState(false);
+  const [view, setview] = useState(0);
   const { id } = useParams();
 
   // export const user = db.user().recall({ sessionStorage: true });
@@ -24,11 +25,21 @@ function Redirect() {
     // window.gun = db;
     // var note = { url: "https://hinzwifi.xyz" };
     // db.get("redirect").get(id).put(note);
+    // db.get("redirect")
+    //   .get(id)
+    //   .once(function (data, key) {
+    //     setview(data);
+    //   });
+    // db.get("redirect").get(id);
+
     db.get("redirect")
       .get(id)
-      .on(function (data, key) {
-        setredirect(data.url);
+      .once(function (data, key) {
+        SEA.decrypt(data.url, "supersecret").then((e) => {
+          setredirect(e);
+        });
       });
+
     // axios
     //   .get(
     //     "https://raw.githubusercontent.com/hinzwifi/gunRecoil/47dcdd7f9400612dc6ad77290f46be893b7661b3/client/url.json"
@@ -40,8 +51,7 @@ function Redirect() {
     //   .catch((err) => {
     //     console.log(err);
     //   });
-    console.log(id);
-  }, [Gun]);
+  }, [Gun, view]);
 
   return (
     <>
