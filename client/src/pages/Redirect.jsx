@@ -47,8 +47,7 @@ function Redirect() {
             setredirect(e);
           });
         }
-      })
-      .put({ urlViews: view });
+      });
 
     // axios
     //   .get(
