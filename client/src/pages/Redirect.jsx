@@ -7,19 +7,23 @@ import "gun/axe";
 import { Helmet } from "react-helmet";
 function Redirect() {
   const [redirect, setredirect] = useState(false);
+  const [nothing, setnothing] = useState(true);
   const [view, setview] = useState(0);
   const { id } = useParams();
 
-  // export const user = db.user().recall({ sessionStorage: true });
-
-  // export const username = writable("");
-  // user.get("alias").on((v) => username.set(v));
-
-  // db.on("auth", async (event) => {
-  //   const alias = await user.get("alias");
-  //   username.set(alias);
-  //   console.log(`Hi I am ${alias}`);
-  // });
+  function Here() {
+    return (
+      <>
+        {nothing ? (
+          <></>
+        ) : (
+          <>
+            <h2>BRUH</h2>
+          </>
+        )}
+      </>
+    );
+  }
   useEffect(() => {
     const db = Gun("http://localhost:3070/gun");
     // window.gun = db;
@@ -35,10 +39,16 @@ function Redirect() {
     db.get("redirect")
       .get(id)
       .once(function (data, key) {
-        SEA.decrypt(data.url, "supersecret").then((e) => {
-          setredirect(e);
-        });
-      });
+        if (data === undefined) {
+          setnothing(false);
+        } else {
+          setview(data.urlViews + 1);
+          SEA.decrypt(data.url, "supersecret").then((e) => {
+            setredirect(e);
+          });
+        }
+      })
+      .put({ urlViews: view });
 
     // axios
     //   .get(
@@ -51,21 +61,18 @@ function Redirect() {
     //   .catch((err) => {
     //     console.log(err);
     //   });
-  }, [Gun, view]);
+  }, []);
 
   return (
     <>
       {redirect ? (
         <Helmet>
-          <meta charSet="utf-8" />
           <title>Redirecting...</title>
           <meta http-equiv="refresh" content={`0; url = ${redirect}`} />
         </Helmet>
       ) : (
         <>
-          {" "}
-          <h1>HI still here</h1>
-          <div>Moving my ass</div>{" "}
+          <Here />
         </>
       )}
     </>
