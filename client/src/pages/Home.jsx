@@ -22,74 +22,22 @@ function Home({ gun }) {
   const [short, setshort] = useState("");
   const [shortCheck, setshortCheck] = useState(false);
   const [urlCheck, setUrlcheck] = useState("");
-  // const [shorcut, setShortcut] = useState([]);
 
-  let newMessage;
-  let messagesSHIT = [];
-  // let messages = [];
   let sup = [];
   let mother = [];
-  // useEffect(() => {
-  //   gun
-  //     .get("redirect")
-  //     .map()
-  //     .once(async (data, id) => {
-  //       console.log(data);
-  //     });
-  // }, [gun]);
-  // the form state manages the form input for creating a new message
+
   const [formState, setForm] = useState({
     name: "",
     short: "",
   });
 
-  // initialize the reducer & state for holding the messages array
   const [state, dispatch] = useReducer(reducer, initialState);
   const [celebrants, setCelebrants] = useState([]);
 
-  // when the app loads, fetch the current messages and load them into the state
-  // this also subscribes to new data as it changes and updates the local state
   useEffect(() => {
     const messages = kekw.get("redirect");
 
-    messages.map().once(async (m) => {
-      // if (data) {
-      // Key for end-to-end encryption
-      //   const key = "#foo";
-      //   var message = {
-      //     // transform the data
-      //     who: await db.user(data).get("alias"), // a user might lie who they are! So let the user system detect whose data it is.
-      //     what: (await SEA.decrypt(data.what, key)) + "", // force decrypt as text.
-      //     when: GUN.state.is(data, "what"), // get the internal timestamp for the what property.
-      //   };
-      //   if (message.what) {
-      //     messages = [...messages.slice(-100), message].sort(
-      //       (a, b) => a.when - b.when
-      //     );
-      //     if (canAutoScroll) {
-      //       autoScroll();
-      //     } else {
-      //       unreadMessages = true;
-      //     }
-      //   }
-      // }
-      // const remove = m.url;
-      // dispatch({
-      //   url: m.url,
-      //   short: m.shortURL,
-      // });
-      //  dispatch({
-      //    name: m.name,
-      //    message: m.message,
-      //    createdAt: m.createdAt,
-      //  });
-      // console.log(m);
-      // mother.push({
-      //   url: m.url,
-      //   short: m.shortURL,
-      // });
-
-      // console.log(mother);
+    messages.map().on(async (m) => {
       sup.push(m.shortURL);
     });
   }, [sup]);
@@ -138,8 +86,8 @@ function Home({ gun }) {
     }
   }
   return (
-    <>
-      <h1>🔫 RecoilGun</h1>
+    <div className="max-w-md  mt-20 mx-auto">
+      <p className="  text-center text-3xl">🔫 RecoilGun</p>
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -152,23 +100,64 @@ function Home({ gun }) {
         pauseOnHover
       />
       <h6>
-        {window.origin}/r/{shortCheck}
+        {window.origin}/{shortCheck}
       </h6>
       <h5>{urlCheck}</h5>
-      <form onSubmit={randomShit}>
+      <div class="w-full mb-5">
+        <div class="flex p-5 rounded-lg shadow bg-white">
+          <div>
+            <svg
+              class="w-6 h-6 fill-current text-blue-500"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <h2 class="font-semibold text-gray-800">Your short link</h2>
+            <p class="mt-2 text-sm text-gray-600 leading-relaxed">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
+              impedit ipsam nam quam! Ab accusamus aperiam distinctio doloribus,
+              praesentium quasi reprehenderit soluta unde?
+            </p>
+          </div>
+        </div>
+      </div>
+      <form
+        className="form-control bg-base-300 p-5 rounded-md"
+        onSubmit={randomShit}
+      >
+        <label class="label">
+          <span class="label-text   text-lg ">Add an url: </span>
+        </label>
         <input
+          className="input input-bordered mb-5"
           value={url}
           required
           type="text"
           onChange={(e) => seturl(e.target.value)}
         ></input>
-        <input
-          value={short}
-          type="text"
-          onChange={(e) => setshort(e.target.value)}
-        ></input>
-        <button type="submit">Submit</button>
+        <div className=" p-5 card bg-base-200">
+          <p className=" text-lg"></p>
+          <label class="label">
+            <span class="label-text">Optional: </span>
+          </label>
+          <input
+            className="input input-bordered mb-5"
+            value={short}
+            placeholder="Custom short URL:"
+            type="text"
+            onChange={(e) => setshort(e.target.value)}
+          ></input>
+        </div>
+        <div class="divider"></div>
+        <button className="btn btn-primary" type="submit">
+          Recoiled
+        </button>
       </form>
+
       {/* {celebrants.length ? (
         celebrants.map((celebrant) => (
           <li key={celebrant.url}> {celebrant.url} </li>
@@ -185,7 +174,7 @@ function Home({ gun }) {
           <h3>From: {message.short}</h3>
         </div>
       ))} */}
-    </>
+    </div>
   );
 }
 
