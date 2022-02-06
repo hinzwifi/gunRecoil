@@ -7,13 +7,13 @@ import Redirect from "./pages/Redirect";
 import Gun from "gun";
 import "gun/sea";
 import "gun/axe";
+import Data from "./pages/Data";
 function App() {
   const [count, setCount] = useState(0);
   const [gunJS, setgunJS] = useState({});
   useEffect(() => {
     const db = Gun("http://localhost:3070/gun");
     setgunJS(db);
-    console.log(db);
   }, [Gun]);
   return (
     <>
@@ -24,7 +24,8 @@ function App() {
       </Helmet> */}
       <Routes>
         <Route exact path="/" element={<Home gun={gunJS} />} />
-        <Route path="r/:id" element={<Redirect />} />
+        <Route path="/:id" element={<Redirect />} />
+        <Route path="/d" element={<Data gun={gunJS} />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </>
