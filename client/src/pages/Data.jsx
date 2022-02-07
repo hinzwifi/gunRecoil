@@ -1,6 +1,6 @@
 import React from "react";
 
-function Data() {
+function Data({ gun }) {
   return <div></div>;
 }
 
