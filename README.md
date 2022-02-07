@@ -33,7 +33,7 @@ You can see the demo I don't know how to deploy the server so I only have the de
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/hinzwifi/gunRecoil.git
 ```
 
 Go to the project directory
