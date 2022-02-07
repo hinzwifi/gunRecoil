@@ -7,7 +7,7 @@ A URL shortener that has zero limits for all your needs
 Insert gif or link to demo
 ![App Screenshot](https://youtu.be/o2fttm8Ir6s)
 https://youtu.be/o2fttm8Ir6s
-https://github.com/hinzwifi/gunRecoil/blob/a4d97d4d263a078331f3ac512111b2bae6db075a/meta/gunRecoil.m4v
+https://github.com/hinzwifi/gunRecoil/blob/a4d97d4d263a078331f3ac512111b2bae6db075a/meta/gunRecoil.m4v.mov
 <!-- https://user-images.githubusercontent.com/6877923/115474571-03c75800-a23e-11eb-8096-8973aad5fa9f.mp4 -->
 
 ## Tech Stack
