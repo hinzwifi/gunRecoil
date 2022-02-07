@@ -2,9 +2,12 @@
 
 A URL shortener that has zero limits for all your needs
 
-## Demo
+## Demo Link
 
-Insert gif or link to demo
+You can see the demo I don't know how to deploy the server so I only have the demo working
+
+[![Watch the video](https://img.youtube.com/vi/o2fttm8Ir6s/maxresdefault.jpg)](https://youtu.be/o2fttm8Ir6s)
+
 
 ## Tech Stack
 
@@ -30,7 +33,7 @@ Insert gif or link to demo
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/hinzwifi/gunRecoil.git
 ```
 
 Go to the project directory
@@ -75,21 +78,12 @@ Start the server
   npm start
 ```
 
-## Usage/Examples
-
-```javascript
-import Component from "my-project";
-
-function App() {
-  return <Component />;
-}
-```
 
 ## Acknowledgements
 
-- [Mark Nadal](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
-- [Fireship](https://github.com/matiassingers/awesome-readme)
-- [Gun's Chat](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+- [Mark Nadal](https://twitter.com/marknadal)
+- [Fireship](https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA)
+- [Gun's Chat](http://chat.gun.eco/)
 
 ## Author
 
