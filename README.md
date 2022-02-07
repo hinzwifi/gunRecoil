@@ -5,6 +5,8 @@ A URL shortener that has zero limits for all your needs
 ## Demo
 
 Insert gif or link to demo
+![App Screenshot](https://youtu.be/o2fttm8Ir6s)
+https://youtu.be/o2fttm8Ir6s
 
 ## Tech Stack
 
