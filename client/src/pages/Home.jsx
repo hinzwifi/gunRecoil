@@ -5,6 +5,11 @@ import randomize from "randomatic";
 import Gun from "gun";
 import "gun/sea";
 import "gun/axe";
+import Dialog from "../components/dialog";
+import QRCode from "react-qr-code";
+import { CSSTransition } from "react-transition-group";
+import copy from "copy-to-clipboard";
+
 const kekw = Gun({
   peers: ["http://localhost:3070/gun"],
 });
@@ -24,16 +29,11 @@ function Home({ gun }) {
   const [urlCheck, setUrlcheck] = useState("");
 
   let sup = [];
-  let mother = [];
+  const [dialog, setdialog] = useState(false);
 
-  const [formState, setForm] = useState({
-    name: "",
-    short: "",
-  });
-
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const [celebrants, setCelebrants] = useState([]);
-
+  const copyToClipboard = () => {
+    copy(`${window.origin}/${shortCheck}`);
+  };
   useEffect(() => {
     const messages = kekw.get("redirect");
 
@@ -80,14 +80,32 @@ function Home({ gun }) {
           draggable: true,
           progress: undefined,
         });
+        setdialog(true);
       });
 
       // setrandom(randomize("Aa0", 10));
     }
   }
   return (
-    <div className="max-w-md  mt-20 mx-auto">
-      <p className="  text-center text-3xl">🔫 RecoilGun</p>
+    <div className=" max-w-2xl py-10    mt-5  md:mt-15 mx-auto">
+      <div
+        className="  max-w-md mx-auto
+      p-3 mb-3  rounded-lg text-center "
+      >
+        <p className=" text-4xl md:text-6xl">
+          🔫 Recoil
+          <a
+            href="https://gun.eco"
+            className=" hover:text-red-400 duration-300 underline text-red-300 "
+          >
+            Gun
+          </a>
+        </p>
+        <br />
+        <p className=" text-lg  md:text-2xl">
+          A URL shortener that has zero limits{" "}
+        </p>
+      </div>
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -99,44 +117,106 @@ function Home({ gun }) {
         draggable
         pauseOnHover
       />
-      <h6>
-        {window.origin}/{shortCheck}
-      </h6>
-      <h5>{urlCheck}</h5>
-      <div class="w-full mb-5">
-        <div class="flex p-5 rounded-lg shadow bg-white">
-          <div>
-            <svg
-              class="w-6 h-6 fill-current text-blue-500"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
+
+      {dialog ? (
+        <>
+          <div className=" flex justify-between rounded-md relative bg-accent max-w-md mx-3 sm:mx-auto mb-5 p-5">
+            <div>
+              <div className="mb-3 text-neutral  relative">
+                <div className="text-xl ">Your short url:</div>
+                <div className="text-lg">
+                  {window.origin}/{shortCheck}
+                </div>
+              </div>
+              <button
+                onClick={copyToClipboard}
+                className="btn btn-primary mr-2"
+              >
+                Copy
+              </button>
+              <label
+                for="my-modal-2"
+                class="btn btn-primary modal-button      "
+              >
+                QR Code
+              </label>
+              <input
+                type="checkbox"
+                id="my-modal-2"
+                class="modal-toggle relative"
+              />
+              <div class="modal  ">
+                <div class="modal-box">
+                  <QRCode
+                    className="mx-auto rounded-md  "
+                    value={`${window.origin}/${shortCheck}`}
+                  />
+                  <div class="modal-action">
+                    {/* <label for="my-modal-2" class="btn btn-primary">
+                    Accept
+                  </label> */}
+
+                    <label
+                      for="my-modal-2"
+                      class="btn btn-circle btn-sm btn-ghost top-3 right-3 absolute"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        className="inline-block w-6 h-6 stroke-current"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        ></path>
+                      </svg>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              onClick={() => setdialog(false)}
+              className="btn btn-sm btn-circle btn-ghost "
             >
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block w-6 h-6 stroke-current"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
           </div>
-          <div class="ml-3">
-            <h2 class="font-semibold text-gray-800">Your short link</h2>
-            <p class="mt-2 text-sm text-gray-600 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
-              impedit ipsam nam quam! Ab accusamus aperiam distinctio doloribus,
-              praesentium quasi reprehenderit soluta unde?
-            </p>
-          </div>
-        </div>
-      </div>
+        </>
+      ) : (
+        <>
+          {" "}
+          <h1></h1>
+        </>
+      )}
       <form
-        className="form-control bg-base-300 p-5 rounded-md"
+        className="form-control mx-2 max-w-lg sm:mx-auto bg-base-300 p-5 rounded-md"
         onSubmit={randomShit}
       >
         <label class="label">
-          <span class="label-text   text-lg ">Add an url: </span>
+          <span class="label-text   text-lg ">Add any url: </span>
         </label>
         <input
-          className="input input-bordered mb-5"
+          className="input input-accent input-bordered mb-5"
           value={url}
           required
-          type="text"
+          type="url"
+          placeholder="https://example.com"
           onChange={(e) => seturl(e.target.value)}
         ></input>
         <div className=" p-5 card bg-base-200">
@@ -157,23 +237,6 @@ function Home({ gun }) {
           Recoiled
         </button>
       </form>
-
-      {/* {celebrants.length ? (
-        celebrants.map((celebrant) => (
-          <li key={celebrant.url}> {celebrant.url} </li>
-        ))
-      ) : (
-        <h1>kekw</h1>
-      )}  */}
-      {/* {sup.map((e) => (
-        <h3>{e}</h3>
-      ))} */}
-      {/* {/* {state.messages.map((message) => ( */}
-      {/* <div key={message.short}>
-          <h2>{message.url}</h2>
-          <h3>From: {message.short}</h3>
-        </div>
-      ))} */}
     </div>
   );
 }
