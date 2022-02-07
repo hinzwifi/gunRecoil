@@ -6,7 +6,7 @@ A URL shortener that has zero limits for all your needs
 
 Insert gif or link to demo
 
-[![Watch the video](https://img.youtube.com/vi/o2fttm8Ir6s/hqdefault.jpg)](https://youtu.be/o2fttm8Ir6s)
+[![Watch the video](https://img.youtube.com/vi/o2fttm8Ir6s/maxresdefault.jpg)](https://youtu.be/o2fttm8Ir6s)
 
 
 
