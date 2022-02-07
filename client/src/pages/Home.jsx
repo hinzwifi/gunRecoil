@@ -5,7 +5,7 @@ import randomize from "randomatic";
 import Gun from "gun";
 import "gun/sea";
 import "gun/axe";
-import Dialog from "../components/dialog";
+
 import QRCode from "react-qr-code";
 import { CSSTransition } from "react-transition-group";
 import copy from "copy-to-clipboard";
