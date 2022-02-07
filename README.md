@@ -5,10 +5,10 @@ A URL shortener that has zero limits for all your needs
 ## Demo
 
 Insert gif or link to demo
-![App Screenshot](https://youtu.be/o2fttm8Ir6s)
-https://youtu.be/o2fttm8Ir6s
-https://github.com/hinzwifi/gunRecoil/blob/a4d97d4d263a078331f3ac512111b2bae6db075a/meta/gunRecoil.m4v.mov
-<!-- https://user-images.githubusercontent.com/6877923/115474571-03c75800-a23e-11eb-8096-8973aad5fa9f.mp4 -->
+
+[![Watch the video](https://img.youtube.com/vi/o2fttm8Ir6s/hqdefault.jpg)](https://youtu.be/o2fttm8Ir6s)
+
+
 
 ## Tech Stack
 
@@ -79,21 +79,12 @@ Start the server
   npm start
 ```
 
-## Usage/Examples
-
-```javascript
-import Component from "my-project";
-
-function App() {
-  return <Component />;
-}
-```
 
 ## Acknowledgements
 
-- [Mark Nadal](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
-- [Fireship](https://github.com/matiassingers/awesome-readme)
-- [Gun's Chat](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+- [Mark Nadal](https://twitter.com/marknadal)
+- [Fireship](https://www.youtube.com/channel/UCsBjURrPoezykLs9EqgamOA)
+- [Gun's Chat](http://chat.gun.eco/)
 
 ## Author
 
