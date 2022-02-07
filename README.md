@@ -2,12 +2,11 @@
 
 A URL shortener that has zero limits for all your needs
 
-## Demo
+## Demo Link
 
-Insert gif or link to demo
+You can see the demo I don't know how to deploy the server so I only have the demo working
 
 [![Watch the video](https://img.youtube.com/vi/o2fttm8Ir6s/maxresdefault.jpg)](https://youtu.be/o2fttm8Ir6s)
-
 
 
 ## Tech Stack
