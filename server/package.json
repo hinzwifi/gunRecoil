@@ -1,7 +1,7 @@
 {
   "name": "gun-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Server side for gunjs",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
