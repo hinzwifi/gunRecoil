@@ -9,7 +9,10 @@ import QRCode from "react-qr-code";
 import copy from "copy-to-clipboard";
 
 const gunData = Gun({
-  peers: ["http://localhost:3070/gun"],
+  peers: [
+    "https://gunrecoil1.herokuapp.com/gun",
+    "https://gunrecoil.herokuapp.com/gun",
+  ],
 });
 
 function Home({ gun }) {

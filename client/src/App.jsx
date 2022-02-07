@@ -12,7 +12,12 @@ function App() {
   const [count, setCount] = useState(0);
   const [gunJS, setgunJS] = useState({});
   useEffect(() => {
-    const db = Gun("http://localhost:3070/gun");
+    const db = Gun({
+      peers: [
+        "https://gunrecoil1.herokuapp.com/gun",
+        "https://gunrecoil.herokuapp.com/gun",
+      ],
+    });
     setgunJS(db);
   }, [Gun]);
   return (

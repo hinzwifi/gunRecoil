@@ -25,7 +25,12 @@ function Redirect() {
     );
   }
   useEffect(() => {
-    const db = Gun("http://localhost:3070/gun");
+    const db = Gun({
+      peers: [
+        "https://gunrecoil1.herokuapp.com/gun",
+        "https://gunrecoil.herokuapp.com/gun",
+      ],
+    });
     db.get("redirect")
       .get(id)
       .once(function (data, key) {
