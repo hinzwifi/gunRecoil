@@ -5,22 +5,13 @@ import randomize from "randomatic";
 import Gun from "gun";
 import "gun/sea";
 import "gun/axe";
-
 import QRCode from "react-qr-code";
-import { CSSTransition } from "react-transition-group";
 import copy from "copy-to-clipboard";
 
-const kekw = Gun({
+const gunData = Gun({
   peers: ["http://localhost:3070/gun"],
 });
-function reducer(state, message) {
-  return {
-    messages: [message, ...state.messages.slice(-100)],
-  };
-}
-const initialState = {
-  messages: [],
-};
+
 function Home({ gun }) {
   const [url, seturl] = useState("");
   const [random, setrandom] = useState("");
@@ -35,8 +26,7 @@ function Home({ gun }) {
     copy(`${window.origin}/${shortCheck}`);
   };
   useEffect(() => {
-    const messages = kekw.get("redirect");
-
+    const messages = gunData.get("redirect");
     messages.map().on(async (m) => {
       sup.push(m.shortURL);
     });
@@ -123,9 +113,11 @@ function Home({ gun }) {
           <div className=" flex justify-between rounded-md relative bg-accent max-w-md mx-3 sm:mx-auto mb-5 p-5">
             <div>
               <div className="mb-3 text-neutral  relative">
-                <div className="text-xl ">Your short url:</div>
+                <div className="text-2xl ">SHORT URL:</div>
                 <div className="text-lg">
-                  {window.origin}/{shortCheck}
+                  <li>
+                    {window.origin}/{shortCheck}
+                  </li>
                 </div>
               </div>
               <button
@@ -145,7 +137,7 @@ function Home({ gun }) {
                 id="my-modal-2"
                 class="modal-toggle relative"
               />
-              <div class="modal  ">
+              <div class="modal">
                 <div class="modal-box">
                   <QRCode
                     className="mx-auto rounded-md  "
