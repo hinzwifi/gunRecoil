@@ -4,10 +4,7 @@ A URL shortener that has zero limits for all your needs
 
 ## Demo Link
 
-You can see the demo I don't know how to deploy the server so I only have the demo working
-
-[![Watch the video](https://img.youtube.com/vi/o2fttm8Ir6s/maxresdefault.jpg)](https://youtu.be/o2fttm8Ir6s)
-
+- [GunRecoil](https://gunrecoil.herokuapp.com)
 
 ## Tech Stack
 
@@ -27,6 +24,13 @@ You can see the demo I don't know how to deploy the server so I only have the de
 - Add user auth (to avoid trolls)
 
 - Add stats for each url (if i go to the route of making it self-host)
+
+
+
+## Example Video
+
+[![Watch the video](https://img.youtube.com/vi/o2fttm8Ir6s/maxresdefault.jpg)](https://youtu.be/o2fttm8Ir6s)
+
 
 ## Contributing
 
