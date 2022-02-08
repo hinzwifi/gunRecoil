@@ -6,11 +6,9 @@ A URL shortener that has zero limits for all your needs
 
 - [GunRecoil](https://gunrecoil.herokuapp.com)
 
-## Tech Stack
+## Screenshots
 
-**Client:** React, GunJS, TailwindCSS, DaisyUI
-
-**Server:** Node, Express, GUNJS Server
+![App Screenshot](https://github.com/hinzwifi/gunRecoil/blob/master/meta/gunRecoil.png)
 
 ## Features
 
@@ -25,12 +23,16 @@ A URL shortener that has zero limits for all your needs
 
 - Add stats for each url (if i go to the route of making it self-host)
 
-
-
 ## Example Video
 
 [![Watch the video](https://img.youtube.com/vi/o2fttm8Ir6s/maxresdefault.jpg)](https://youtu.be/o2fttm8Ir6s)
 
+
+## Tech Stack
+
+**Client:** React, GunJS, TailwindCSS, DaisyUI
+
+**Server:** Node, Express, GUNJS Server
 
 ## Contributing
 
