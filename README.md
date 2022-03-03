@@ -4,7 +4,8 @@ A URL shortener that has zero limits for all your needs
 
 ## Demo Link
 
-- [GunRecoil](https://gunrecoil.herokuapp.com)
+- [GunRecoil](https://gunrecoil.herokuapp.com) (As of now there is no way to have permanent storage that I know of)
+
 
 ## Screenshots
 
